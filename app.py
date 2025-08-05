@@ -65,7 +65,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="scrollable-board">', unsafe_allow_html=True)
 # Layout: 3 columns (settings - board - progress)
 left_col, center_col, right_col = st.columns([1.5, 2.5, 1.5], gap="medium")
 
@@ -102,6 +101,8 @@ with center_col:
     st.caption("Click a valid cell, enter your letter and word, then submit.")
     st.markdown("### Game Board")
 
+    st.markdown('<div class="scrollable-board">', unsafe_allow_html=True)
+
     possible = set(game.possible_places())
     for i in range(size):
         cols = st.columns(size, gap="small")
@@ -127,6 +128,8 @@ with center_col:
                             st.rerun()
                 else:
                     st.markdown(f"""<button class='{css_class}' disabled>&nbsp;</button>""", unsafe_allow_html=True)
+
+    st.markdown('</div>', unsafe_allow_html=True)
 
     if st.session_state.selected_cell:
         st.info(f"Selected cell: {st.session_state.selected_cell}")
@@ -244,5 +247,3 @@ with right_col:
         for word in game.player_logs:
             letter = word[0] if word else ""
             st.text(f"{letter}: {word}")
-
-st.markdown('</div>', unsafe_allow_html=True)
