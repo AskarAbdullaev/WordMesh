@@ -40,6 +40,7 @@ custom_css = f"""
         height: {side}em;
         width: {side}em;
         font-size: 20px !important;
+        background-color: #666666 !important;
         padding: 0 !important;
         margin: 0.1em;
         text-align: center;
