@@ -137,10 +137,10 @@ with center_col:
                             length = 5
                             rows = 3
                         elif game.size == 5:
-                            length = 8
+                            length = 4
                             rows = 1
                         elif game.size == 6:
-                            length = 4
+                            length = 3
                             rows = 1
                         placeholder = '\n'.join(['\u00A0' * length for _ in range(rows)])
                         if st.button(placeholder, key=f"valid_{i}_{j}"):
