@@ -140,7 +140,7 @@ with center_col:
                             length = 8
                             rows = 1
                         elif game.size == 6:
-                            length = 6
+                            length = 10
                             rows = 1
                         placeholder = '\n'.join(['\u00A0' * length for _ in range(rows)])
                         if st.button(placeholder, key=f"valid_{i}_{j}"):
