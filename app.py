@@ -25,7 +25,7 @@ if st.session_state.game.size == 3:
 elif st.session_state.game.size == 6:
     side = 2
 elif st.session_state.game.size == 5:
-    side = 2.5
+    side = 2
 else:
     side = 3
 # Button styling
@@ -137,7 +137,7 @@ with center_col:
                             length = 5
                             rows = 3
                         elif game.size == 5:
-                            length = 4
+                            length = 3
                             rows = 1
                         elif game.size == 6:
                             length = 3
