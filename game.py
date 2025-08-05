@@ -1,6 +1,7 @@
 from collections import Counter
 import numpy as np
 import pandas as pd
+import os
 
 class Game():
 
@@ -16,8 +17,11 @@ class Game():
         self.size = size
         self.field = [[' ' for _ in range(size)] for _ in range(size)]
 
-        all_nouns = pd.read_csv(f'{language}.csv', sep='\t')['Lemma'].to_list()
-        frequencies = pd.read_csv(f'{language}.csv', sep='\t')[['Lemma', 'Freq']]
+        current_dir = os.path.dirname(__file__)
+        self.csv_path = os.path.join(current_dir, f"{language}.csv")
+
+        all_nouns = pd.read_csv(self.csv_path, sep='\t')['Lemma'].to_list()
+        frequencies = pd.read_csv(self.csv_path, sep='\t')[['Lemma', 'Freq']]
         frequencies = frequencies.drop_duplicates(subset='Lemma')
         frequencies.set_index('Lemma', inplace=True)
         frequencies = frequencies.T.to_dict()
@@ -344,7 +348,7 @@ class Game():
                 assert word in self.all_nouns, f'unknown word {word}'
             else:
                 if word not in self.all_nouns:
-                    pd.DataFrame({'Lemma': [word], 'Freq': [0.0]}, index=[0]).to_csv(f'{self.language}.csv', mode='a', index=False, sep='\t', header=False)
+                    pd.DataFrame({'Lemma': [word], 'Freq': [0.0]}, index=[0]).to_csv(self.csv_path, mode='a', index=False, sep='\t', header=False)
 
             paths = self.get_all_paths(letter, place, len(word), search_word=word)
             word_paths = {''.join(w[-1] for w in ww) for ww in paths}
