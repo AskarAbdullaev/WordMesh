@@ -20,8 +20,14 @@ if "game" not in st.session_state:
     st.session_state.last_computer_path = set()
     st.session_state.error_word = None
 
+if game.size == 3:
+    side = 4
+elif game.size == 6:
+    side = 2
+else:
+    side = 3
 # Button styling
-custom_css = """
+custom_css = f"""
     <style>
     .scrollable-board {
         overflow-x: auto;
@@ -29,13 +35,13 @@ custom_css = """
         padding-bottom: 1em;
     }
     .square-button {
-        height: 3em;
-        width: 3em;
+        height: {side}em;
+        width: {side}em;
         font-size: 20px !important;
         padding: 0 !important;
         margin: 0.1em;
         text-align: center;
-        line-height: 3em;
+        line-height: {side}em;
         color: white;
     }
     .highlight-cell {
