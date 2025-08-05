@@ -52,6 +52,8 @@ custom_css = f"""
         border: 2px solid #e69138 !important;
     }}
     .selected-cell {{
+        height: {side-0.3}em;
+        width: {side-0.3}em;
         background-color: #000000 !important;
         color: black !important;
         border: 2px solid red !important;
