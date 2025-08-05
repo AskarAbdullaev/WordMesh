@@ -1,8 +1,6 @@
 from collections import Counter
 import numpy as np
 import pandas as pd
-from tqdm import tqdm
-import time
 
 class Game():
 
