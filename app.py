@@ -24,6 +24,8 @@ if st.session_state.game.size == 3:
     side = 4
 elif st.session_state.game.size == 6:
     side = 2
+elif st.session_state.game.size == 5:
+    side = 2.5
 else:
     side = 3
 # Button styling
@@ -130,15 +132,15 @@ with center_col:
                     else:
                         if game.size == 3:
                             length = 6
-                            rows = 3
+                            rows = 4
                         elif game.size == 4:
                             length = 5
-                            rows = 2
+                            rows = 3
                         elif game.size == 5:
                             length = 6
                             rows = 2
                         elif game.size == 6:
-                            length = 4
+                            length = 6
                             rows = 1
                         placeholder = '\n'.join(['\u00A0' * length for _ in range(rows)])
                         if st.button(placeholder, key=f"valid_{i}_{j}"):
