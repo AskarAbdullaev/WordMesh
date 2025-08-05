@@ -29,12 +29,12 @@ else:
 # Button styling
 custom_css = f"""
     <style>
-    .scrollable-board {
+    .scrollable-board {{
         overflow-x: auto;
         white-space: nowrap;
         padding-bottom: 1em;
-    }
-    .square-button {
+    }}
+    .square-button {{
         height: {side}em;
         width: {side}em;
         font-size: 20px !important;
@@ -43,17 +43,17 @@ custom_css = f"""
         text-align: center;
         line-height: {side}em;
         color: white;
-    }
-    .highlight-cell {
+    }}
+    .highlight-cell {{
         background-color: #ffd966 !important;
         color: black !important;
         border: 2px solid #e69138 !important;
-    }
-    .selected-cell {
+    }}
+    .selected-cell {{
         background-color: #000000 !important;
         color: black !important;
         border: 2px solid red !important;
-    }
+    }}
     </style>
 """
 st.markdown(custom_css, unsafe_allow_html=True)
