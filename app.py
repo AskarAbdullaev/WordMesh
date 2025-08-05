@@ -138,7 +138,7 @@ with center_col:
                             rows = 3
                         elif game.size == 5:
                             length = 7
-                            rows = 2
+                            rows = 1
                         elif game.size == 6:
                             length = 6
                             rows = 1
