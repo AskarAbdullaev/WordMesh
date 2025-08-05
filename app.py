@@ -176,7 +176,7 @@ with center_col:
                 st.session_state.letter = ""
                 st.session_state.word = ""
                 
-                time.sleep(2)
+                time.sleep(1)
 
                 if done:
                     if game.player_score > game.computer_score:
