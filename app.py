@@ -1,6 +1,8 @@
 import streamlit as st
 from game import Game
 
+import time
+
 # Default game settings
 default_size = 4
 default_level = 'normal'
@@ -173,6 +175,8 @@ with center_col:
                 st.session_state.selected_cell = None
                 st.session_state.letter = ""
                 st.session_state.word = ""
+                
+                time.sleep(2)
 
                 if done:
                     if game.player_score > game.computer_score:
