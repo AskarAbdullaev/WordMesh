@@ -23,6 +23,11 @@ if "game" not in st.session_state:
 # Button styling
 custom_css = """
     <style>
+    .scrollable-board {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 1em;
+    }
     .square-button {
         height: 3em;
         width: 3em;
@@ -60,6 +65,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+st.markdown('<div class="scrollable-board">', unsafe_allow_html=True)
 # Layout: 3 columns (settings - board - progress)
 left_col, center_col, right_col = st.columns([1.5, 2.5, 1.5], gap="medium")
 
@@ -238,3 +244,5 @@ with right_col:
         for word in game.player_logs:
             letter = word[0] if word else ""
             st.text(f"{letter}: {word}")
+
+st.markdown('</div>', unsafe_allow_html=True)
