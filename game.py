@@ -18,7 +18,7 @@ class Game():
         self.field = [[' ' for _ in range(size)] for _ in range(size)]
 
         current_dir = os.path.dirname(__file__)
-        self.csv_path = os.path.join(current_dir, f"{language}.csv")
+        self.csv_path = os.path.join(current_dir, f"{language.lower()}.csv")
 
         all_nouns = pd.read_csv(self.csv_path, sep='\t')['Lemma'].to_list()
         frequencies = pd.read_csv(self.csv_path, sep='\t')[['Lemma', 'Freq']]
