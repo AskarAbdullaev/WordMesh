@@ -4,7 +4,7 @@ from game import Game
 # Default game settings
 default_size = 4
 default_level = 'normal'
-default_language = 'english'
+default_language = 'English'
 
 # Initialize settings
 if "settings" not in st.session_state:
@@ -72,8 +72,8 @@ with left_col:
     st.markdown("## Game Settings")
     new_size = st.selectbox("Grid size", options=list(range(3, 7)), index=st.session_state.settings["size"] - 3)
     new_level = st.selectbox("Difficulty", options=["easy", "normal", "hard"], index=["easy", "normal", "hard"].index(st.session_state.settings["level"]))
-    new_language = st.selectbox("Language", options=["Russian", "English"])
-    new_first = st.selectbox("First Move", options=["Player", "Computer"])
+    new_language = st.selectbox("Language", options=["English", "Russian"])
+    new_first = st.selectbox("First Move", options=["Computer", "Player"])
 
     button_cols = st.columns(2)
     with button_cols[0]:
@@ -122,7 +122,10 @@ with center_col:
                     if coord == st.session_state.selected_cell:
                         st.markdown(f"""<button class='{css_class}' disabled>{'&nbsp;' * 5}<br>{'&nbsp;' * 5}</button>""", unsafe_allow_html=True)
                     else:
-                        if st.button("\u00A0\u00A0\u00A0\u00A0\u00A0\n\u00A0\u00A0\u00A0\u00A0\u00A0", key=f"valid_{i}_{j}"):
+                        length = game.size
+                        rows = max(1, 9 // game.size)
+                        placeholder = '\n'.join(['\u00A0' * length for _ in range(rows)])
+                        if st.button(placeholder, key=f"valid_{i}_{j}"):
                             st.session_state.selected_cell = coord
                             st.session_state.last_computer_path = set()
                             st.rerun()
