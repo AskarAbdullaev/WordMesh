@@ -20,9 +20,9 @@ if "game" not in st.session_state:
     st.session_state.last_computer_path = set()
     st.session_state.error_word = None
 
-if game.size == 3:
+if st.session_state.game.size == 3:
     side = 4
-elif game.size == 6:
+elif st.session_state.game.size == 6:
     side = 2
 else:
     side = 3
