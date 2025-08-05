@@ -132,7 +132,7 @@ with center_col:
                     else:
                         if game.size == 3:
                             length = 6
-                            rows = 4
+                            rows = 5
                         elif game.size == 4:
                             length = 5
                             rows = 3
