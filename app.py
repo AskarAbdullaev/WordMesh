@@ -40,12 +40,12 @@ custom_css = f"""
         height: {side}em;
         width: {side}em;
         font-size: 20px !important;
-        background-color: #666666 !important;
+        background-color: #6666ee !important;
         padding: 0 !important;
         margin: 0.1em;
         text-align: center;
         line-height: {side}em;
-        color: white;
+        color: black;
     }}
     .highlight-cell {{
         background-color: #ffd966 !important;
