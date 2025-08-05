@@ -128,8 +128,18 @@ with center_col:
                     if coord == st.session_state.selected_cell:
                         st.markdown(f"""<button class='{css_class}' disabled>{'&nbsp;' * 5}<br>{'&nbsp;' * 5}</button>""", unsafe_allow_html=True)
                     else:
-                        length = game.size
-                        rows = max(1, 9 // game.size)
+                        if game.size == 3:
+                            length = 6
+                            rows = 3
+                        elif game.size == 4:
+                            length = 5
+                            rows = 2
+                        elif game.size == 5:
+                            length = 6
+                            rows = 2
+                        elif game.size == 6:
+                            length = 4
+                            rows = 1
                         placeholder = '\n'.join(['\u00A0' * length for _ in range(rows)])
                         if st.button(placeholder, key=f"valid_{i}_{j}"):
                             st.session_state.selected_cell = coord
